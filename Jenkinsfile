@@ -33,7 +33,7 @@ pipeline {
         }
         stage('CanaryDeploy') {
             when {
-                branch 'test'
+                branch 'master'
             }
             steps {
                 sh "kubectl apply -f canary/frontend-svc-canary.yaml"
@@ -42,7 +42,7 @@ pipeline {
         }
         stage('DeployToProduction') {
             when {
-                branch 'test'
+                branch 'master'
             }
 
             steps {
